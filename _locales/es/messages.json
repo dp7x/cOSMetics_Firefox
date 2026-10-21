@@ -372,7 +372,7 @@
     "message": "relaciones"
   },
   "popupSubtitle": {
-    "message": "Fondos personalizados, asistente de edificios y OSMradamus"
+    "message": "Fondos personalizados, asistente de edificios y OSMradamus (comment suggester)"
   },
   "overtureMoveHelp": {
     "message": "Arrastra para mover. Doble clic o Inicio para restablecer; las flechas mueven el panel."
@@ -405,7 +405,7 @@
     "message": "Fondos personalizados"
   },
   "sectionComments": {
-    "message": "OSMradamus · Comentarios y hashtags"
+    "message": "OSMradamus (comment suggester) · Comentarios y hashtags"
   },
   "sectionGrid": {
     "message": "Cuadrícula de mapeo"

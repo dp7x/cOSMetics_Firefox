@@ -3,7 +3,7 @@
 
   # cOSMetics for iD
 
-  Custom Layers, Building Assistant & OSMradamus
+  Custom Layers, Building Assistant & OSMradamus (comment suggester)
 </div>
 
 <hr>
@@ -29,7 +29,7 @@ Developed for Firefox desktop 140 or later. The Chrome edition is maintained sep
 * **Individual Addition:** Select an outline and press **A** or click **Add (A)** to create a `building=yes` way with a source tag. The accepted outline disappears from the overlay.
 * **Existing Buildings:** Candidates overlapping OSM buildings already loaded in iD are hidden or blocked. Review every proposed building against imagery and correct its geometry and tags before uploading. Geometries with holes or multiple polygons must be drawn manually.
 
-### 💡 OSMradamus — Changeset Comments
+### 💡 OSMradamus (comment suggester)
 
 * **Automatic Analysis:** Reads the OSMChange file and distinguishes created and modified objects. Only descriptive master tags are used; supplementary information such as `name`, `source` and `leaf_type` is ignored.
 * **Specific Categories:** Common values receive specific names, while other values use the master tag's general category. Moved untagged nodes are classified through their parent ways already loaded in iD; otherwise, the suggestion uses “geometries”.

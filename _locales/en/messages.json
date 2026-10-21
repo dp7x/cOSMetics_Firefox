@@ -372,7 +372,7 @@
     "message": "relations"
   },
   "popupSubtitle": {
-    "message": "Custom Layers, Building Assistant & OSMradamus"
+    "message": "Custom Layers, Building Assistant & OSMradamus (comment suggester)"
   },
   "overtureMoveHelp": {
     "message": "Drag to move. Double-click or press Home to reset; arrow keys move the panel."
@@ -405,7 +405,7 @@
     "message": "Custom backgrounds"
   },
   "sectionComments": {
-    "message": "OSMradamus · Comments and hashtags"
+    "message": "OSMradamus (comment suggester) · Comments and hashtags"
   },
   "sectionGrid": {
     "message": "Mapping grid"

@@ -372,7 +372,7 @@
     "message": "relations"
   },
   "popupSubtitle": {
-    "message": "Fonds personnalisés, assistant bâtiments et OSMradamus"
+    "message": "Fonds personnalisés, assistant bâtiments et OSMradamus (comment suggester)"
   },
   "overtureMoveHelp": {
     "message": "Faites glisser pour déplacer. Double-clic ou touche Début pour réinitialiser ; les flèches déplacent le panneau."
@@ -405,7 +405,7 @@
     "message": "Fonds personnalisés"
   },
   "sectionComments": {
-    "message": "OSMradamus · Commentaires et hashtags"
+    "message": "OSMradamus (comment suggester) · Commentaires et hashtags"
   },
   "sectionGrid": {
     "message": "Grille de cartographie"

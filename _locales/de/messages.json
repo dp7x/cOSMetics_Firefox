@@ -372,7 +372,7 @@
     "message": "Relationen"
   },
   "popupSubtitle": {
-    "message": "Eigene Hintergrundebenen, Gebäudeassistent und OSMradamus"
+    "message": "Eigene Hintergrundebenen, Gebäudeassistent und OSMradamus (comment suggester)"
   },
   "overtureMoveHelp": {
     "message": "Zum Verschieben ziehen. Doppelklick oder Home setzt die Position zurück; Pfeiltasten verschieben das Panel."
@@ -405,7 +405,7 @@
     "message": "Benutzerdefinierte Hintergründe"
   },
   "sectionComments": {
-    "message": "OSMradamus · Kommentare und Hashtags"
+    "message": "OSMradamus (comment suggester) · Kommentare und Hashtags"
   },
   "sectionGrid": {
     "message": "Kartierungsraster"

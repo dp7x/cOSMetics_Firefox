@@ -372,7 +372,7 @@
     "message": "relations"
   },
   "popupSubtitle": {
-    "message": "Vlastné podkladové mapy, asistent budov a OSMradamus"
+    "message": "Vlastné podkladové mapy, asistent budov a OSMradamus (comment suggester)"
   },
   "overtureMoveHelp": {
     "message": "Presunutím premiestnite panel. Dvojklik alebo Home obnoví polohu; šípky posúvajú panel."
@@ -405,7 +405,7 @@
     "message": "Vlastné pozadia"
   },
   "sectionComments": {
-    "message": "OSMradamus · Komentáre a hashtagy"
+    "message": "OSMradamus (comment suggester) · Komentáre a hashtagy"
   },
   "sectionGrid": {
     "message": "Mapovacia mriežka"

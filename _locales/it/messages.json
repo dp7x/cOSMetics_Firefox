@@ -372,7 +372,7 @@
     "message": "relazioni"
   },
   "popupSubtitle": {
-    "message": "Sfondi personalizzati, assistente edifici e OSMradamus"
+    "message": "Sfondi personalizzati, assistente edifici e OSMradamus (comment suggester)"
   },
   "overtureMoveHelp": {
     "message": "Trascina per spostare. Doppio clic o Home per ripristinare; le frecce spostano il box."
@@ -405,7 +405,7 @@
     "message": "Sfondi personalizzati"
   },
   "sectionComments": {
-    "message": "OSMradamus · Commenti e hashtag"
+    "message": "OSMradamus (comment suggester) · Commenti e hashtag"
   },
   "sectionGrid": {
     "message": "Griglia di mappatura"
