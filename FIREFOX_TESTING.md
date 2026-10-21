@@ -1,4 +1,4 @@
-# Prova della versione Firefox 1.90
+# Prova della versione Firefox 1.90.2
 
 Questa prima versione Firefox contiene le stesse quattro funzioni della versione Chrome 1.90. Strava non è incluso. Il repository Chrome non è stato modificato.
 

@@ -16,6 +16,36 @@
   let context;
   let watchingHistory = false;
 
+  // Keep the Blob behind iD's download link until iD revokes it. Reading the
+  // Blob directly avoids a fetch(blob:) blocked by the website's connect-src.
+  const exportBlobs = new Map();
+  const createObjectURL = URL.createObjectURL;
+  const revokeObjectURL = URL.revokeObjectURL;
+  URL.createObjectURL = function (...args) {
+    const url = Reflect.apply(createObjectURL, this, args);
+    if (args[0] instanceof Blob) exportBlobs.set(url, args[0]);
+    return url;
+  };
+  URL.revokeObjectURL = function (url) {
+    exportBlobs.delete(String(url));
+    return Reflect.apply(revokeObjectURL, this, arguments);
+  };
+  document.addEventListener('cosmetics:read-osmchange', async event => {
+    const { requestId, url } = bridgeDetail(event);
+    if (typeof requestId !== 'string') return;
+    let text, error;
+    try {
+      const link = document.querySelector('.download-changes');
+      if (typeof url !== 'string' || !url.startsWith('blob:') || link?.href !== url || !exportBlobs.has(url)) {
+        throw new Error('OSMChange export unavailable; reload the iD editor and reopen Save');
+      }
+      text = await exportBlobs.get(url).text();
+    } catch (failure) { error = failure.message; }
+    document.dispatchEvent(bridgeEvent('cosmetics:read-osmchange-result', {
+      detail: { requestId, text, error }
+    }));
+  });
+
   function inside(point, ring) {
     let result = false;
     for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {

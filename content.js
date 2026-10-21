@@ -496,7 +496,28 @@
         return points;
     }
 
-	// Download and parse OSMChange file to extract object types
+    let osmChangeRequest = 0;
+    function readOsmChangeText(url) {
+        return new Promise((resolve, reject) => {
+            const requestId = `osmchange-${++osmChangeRequest}`;
+            const receive = event => {
+                const result = bridgeDetail(event);
+                if (result.requestId !== requestId) return;
+                clearTimeout(timer);
+                document.removeEventListener('cosmetics:read-osmchange-result', receive);
+                if (typeof result.text === 'string') resolve(result.text);
+                else reject(new Error(result.error || 'OSMChange export unavailable'));
+            };
+            const timer = setTimeout(() => {
+                document.removeEventListener('cosmetics:read-osmchange-result', receive);
+                reject(new Error('OSMChange bridge timed out; reload the iD editor'));
+            }, 10000);
+            document.addEventListener('cosmetics:read-osmchange-result', receive);
+            document.dispatchEvent(bridgeEvent('cosmetics:read-osmchange', { detail: { requestId, url } }));
+        });
+    }
+
+	// Read and parse iD's local OSMChange export to extract object types.
 	async function analyzeChangesFromOsmChange() {
 		// Find the link to download the OSMChange file
 		const downloadLink = document.querySelector('.download-changes');
@@ -512,8 +533,7 @@
 		}
 		
 		try {
-			const response = await fetch(osmChangeUrl);
-			const osmChangeText = await response.text();
+			const osmChangeText = await readOsmChangeText(osmChangeUrl);
 			
 			// Parsing XML
 			const parser = new DOMParser();
@@ -707,8 +727,7 @@ async function getCurrentArea() {
         if (downloadLink) {
             const osmChangeUrl = downloadLink.href;
             if (osmChangeUrl && osmChangeUrl.startsWith('blob:')) {
-                const response = await fetch(osmChangeUrl);
-                const osmChangeText = await response.text();
+                const osmChangeText = await readOsmChangeText(osmChangeUrl);
                 const parser = new DOMParser();
                 const xmlDoc = parser.parseFromString(osmChangeText, 'text/xml');
                 

@@ -10,7 +10,7 @@
     } catch { return {}; }
   }
 
-import { PMTiles } from 'pmtiles';
+import { createFirefoxArchive } from './pmtiles-firefox.js';
 import { VectorTile } from '@mapbox/vector-tile';
 import { PbfReader } from 'pbf';
 
@@ -126,7 +126,7 @@ if (!document.documentElement.dataset.cosmeticsOverture) {
     if (typeof release !== 'string' || !/^\d{4}-\d{2}-\d{2}\.\d+$/.test(release)) {
       throw new Error(t('releaseMissing'));
     }
-    const candidate = new PMTiles(TILES(release));
+    const candidate = createFirefoxArchive(TILES(release));
     const header = await candidate.getHeader();
     maxZoom = header.maxZoom;
     archive = candidate;
