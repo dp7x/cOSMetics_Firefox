@@ -57,7 +57,7 @@
     },
     "browser_specific_settings": {
         "gecko": {
-            "id": "cosmetics-firefox@dp7x.github.io",
+            "id": "{9d40858a-d02a-4a1c-96e6-af64b68ff68f}",
             "strict_min_version": "140.0",
             "data_collection_permissions": {
                 "required": [
