@@ -10,3 +10,7 @@ Thumbs.db
 
 # Node modules 
 node_modules/
+# Local build outputs and editor test artifacts
+web-ext-artifacts/
+*.zip
+*.xpi
