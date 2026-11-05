@@ -1,6 +1,6 @@
 # Privacy Policy — cOSMetics for iD
 
-Last updated: 21 October 2026
+Last updated: 5 November 2026
 
 cOSMetics for iD is an independent Firefox extension developed by dp7 to assist with the OpenStreetMap iD mapping workflow.
 
@@ -12,9 +12,9 @@ Edits are analysed in the browser. The developer does not operate a server that 
 
 ### Stored preferences
 
-Custom background names and URL templates, the Overture enablement preference and the English-comment preference are stored using Firefox sync storage. Firefox may synchronise these settings according to your browser configuration.
+Custom background names and URL templates, the English-comment preference are stored using Firefox sync storage. Firefox may synchronise these settings according to your browser configuration.
 
-The configured changeset hashtag, the marker used to manage that hashtag, the Overture control position, popup section states and grid parameters are stored using Firefox local storage. These preferences remain until changed, cleared or removed using browser controls. Downloaded GeoJSON files are stored on your computer and remain under your control.
+The configured changeset hashtag, the marker used to manage that hashtag, floating-panel positions, geometry simplification tolerance, popup section states and grid parameters are stored using Firefox local storage. These preferences remain until changed, cleared or removed using browser controls. Downloaded GeoJSON files are stored on your computer and remain under your control.
 
 ### External services
 
@@ -28,10 +28,23 @@ External services may receive network information such as your IP address and re
 
 ### Purpose and limited use
 
-Data is used only to provide the disclosed OpenStreetMap mapping features. The developer does not sell user data, use it for advertising, use it for unrelated purposes, or use it to determine creditworthiness or for lending. The use of data complies with the Mozilla Add-on Policies.
+Data is used only to provide the disclosed OpenStreetMap mapping features. The developer does not sell user data, use it for advertising, use it for unrelated purposes, or use it to determine creditworthiness or for lending. The use of data complies with the Firefox Web Store User Data Policy, including its Limited Use requirements.
 
 ### Your controls and contact
 
 You can edit or remove saved backgrounds, clear the configured hashtag, disable Overture assistance, change stored preferences, delete downloaded files, or remove the extension using Firefox. Firefox sync settings are managed through Firefox. No developer-hosted user database exists for which deletion must be requested.
 
 For questions, contact dp7 through OpenStreetMap: https://www.openstreetmap.org/user/dp7
+
+
+## Sensei — tag review
+
+Imported Overpass JSON/GeoJSON files are processed locally as lists of OpenStreetMap object IDs. Sensei uses the iD editor to load selected objects and apply user-confirmed tag changes to the local edit history. It does not contact Overpass or upload changesets. Imported lists, rules and review position stay in the editor tab memory until the tab is closed or reloaded. Normal iD data requests and uploads remain subject to OpenStreetMap’s policies.
+
+## Ockham — geometry simplification
+
+Ockham processes the selected way and loaded OSM data inside the browser. Preview is a temporary map overlay; explicit Apply records an edit in iD history. The feature makes no separate external service requests and never uploads a changeset. Metre tolerance is stored in extension local storage. Original OSM request/upload behavior remains managed by iD.
+
+## Floating-panel activation
+
+Bricks, Sensei and Ockham start disabled whenever iD is opened or reloaded. Their activation is held only in the current page memory and is not saved or synchronised between browser sessions or tabs. Tool preferences and panel positions remain stored independently.

@@ -1033,3 +1033,26 @@ async function getAreaFromNominatim(lat, lon) {
     window.setupIDEditorListeners();
 
 })();
+
+// Relay the popup request to the frame that actually hosts the iD editor.
+(() => {
+    const frameKey = crypto.randomUUID();
+    browser.runtime.onMessage.addListener((message, sender, respond) => {
+        if (sender.id !== browser.runtime.id || message?.kind !== 'cosmetics-grid' ||
+            !['probe', 'show'].includes(message.action) ||
+            (message.action === 'show' && message.frameKey !== frameKey)) return;
+        let result;
+        function receive(event) {
+            try { result = JSON.parse(event.detail); } catch { /* Invalid response. */ }
+        }
+        document.addEventListener('cosmetics:grid-result', receive);
+        try {
+            document.dispatchEvent(new CustomEvent('cosmetics:grid-request', {
+                detail: JSON.stringify(message)
+            }));
+        } finally {
+            document.removeEventListener('cosmetics:grid-result', receive);
+        }
+        if (result) respond({ ...result, frameKey });
+    });
+})();

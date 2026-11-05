@@ -18,7 +18,7 @@ function translatedMarkup(message) {
         if (node.tagName === 'A') {
             try {
                 const url = new URL(node.getAttribute('href'));
-                if (url.protocol === 'https:' && url.hostname === 'www.openstreetmap.org') {
+                if (url.protocol === 'https:' && ['www.openstreetmap.org', 'overturemaps.org', 'overpass-turbo.eu', 'github.com'].includes(url.hostname)) {
                     element.href = url.href;
                     element.target = '_blank';
                     element.rel = 'noopener noreferrer';
@@ -38,14 +38,6 @@ document.querySelectorAll('[data-i18n-html]').forEach(el => {
 document.addEventListener('DOMContentLoaded', loadSettings);
 
 document.getElementById('saveButton').addEventListener('click', saveSettings);
-
-const overtureEnabled = document.getElementById('overtureEnabled');
-browser.storage.sync.get('overtureEnabled').then(items => {
-    overtureEnabled.checked = items.overtureEnabled === true;
-});
-overtureEnabled.addEventListener('change', () => {
-    browser.storage.sync.set({ overtureEnabled: overtureEnabled.checked });
-});
 
 const commentsInEnglish = document.getElementById('commentsInEnglish');
 browser.storage.sync.get('commentsInEnglish').then(items => {

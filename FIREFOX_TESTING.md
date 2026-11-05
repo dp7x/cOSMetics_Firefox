@@ -1,50 +1,33 @@
-# Prova della versione Firefox 1.90.2
+# Firefox 2.02 — manual checks
 
-Questa prima versione Firefox contiene le stesse quattro funzioni della versione Chrome 1.90. Strava non è incluso. Il repository Chrome non è stato modificato.
+Load `manifest.json` through `about:debugging#/runtime/this-firefox` →
+**Load Temporary Add-on**, then refresh iD. Temporary installation ends when
+Firefox closes. The package is unsigned; permanent installation requires
+Mozilla signing.
 
-## Caricamento temporaneo
+- Confirm the popup displays **2.02** and all six feature sections. Check the
+  interface in the browser language and that the Save button stays visible.
+- Bricks, Sensei and Ockham should start disabled. Enable them in the popup,
+  reopen the popup to check their switches, then reload iD to verify they reset.
+  Tool preferences should remain saved; other open tabs should be independent.
+- In Bricks, load Overture buildings at zoom 18 or higher, select an outline
+  and add it with A. Confirm there is no constructor permission error.
+- Press 4 and draw a building with three clicks. Test corner/wall snapping,
+  selection after drawing, Esc cancellation and undo. Shared nodes should
+  connect attached buildings correctly.
+- In Sensei, import a small Overpass JSON or GeoJSON file. Test replacement,
+  removal, manual review, Skip and Previous. Already corrected objects should
+  be skipped during forward navigation. Verify changes in iD before uploading.
+- In Ockham, select a line or polygon, adjust tolerance, preview with 5 and
+  apply with 0. Test Undo and confirm protected nodes remain.
+- Download a grid in edit mode: it should also appear as custom data. Existing
+  custom data should require confirmation before replacement. Outside iD,
+  only the download should be available.
+- Generate an OSMradamus comment in the save dialog. Confirm there is no
+  blocked `blob:` request. Check persistent hashtags, including with a manual
+  comment, and verify the normal iD upload workflow.
+- Save and apply a custom background. Check the popup's help links, dragging,
+  panel collapse buttons and light/dark appearance.
 
-1. Usa Firefox desktop 140 o successivo.
-2. Estrai il pacchetto di prova in una cartella separata da Chrome.
-3. Apri `about:debugging#/runtime/this-firefox`.
-4. Premi **Carica componente aggiuntivo temporaneo** e scegli `manifest.json`.
-5. Apri o ricarica la pagina di iD su OpenStreetMap.
-
-Il caricamento temporaneo dura fino alla chiusura di Firefox. Per l'installazione permanente serve la firma Mozilla. Non disattivare le verifiche delle firme nel tuo Firefox.
-
-Le impostazioni di Chrome non vengono importate automaticamente. Firefox usa il proprio archivio di preferenze. Il consenso alla trasmissione dei dati di posizione riguarda l'area della mappa richiesta a Nominatim/Overture, non il GPS del dispositivo.
-
-## Controlli da fare in iD
-
-- **Popup:** apri più sezioni, scorri i contenuti e verifica che Salva rimanga visibile. Chiudi e riapri: le sezioni devono mantenere il loro stato.
-- **Sfondi:** salva due sfondi con nomi e URL; in iD apri le impostazioni dello sfondo personalizzato e scegli entrambi. Riapri il popup per verificare il salvataggio.
-- **Commenti:** crea o modifica oggetti di categorie diverse, apri il salvataggio e premi Suggerisci. Verifica lingua, opzione inglese, distinzione creati/modificati e massimo quattro categorie per gruppo.
-- **Hashtag:** imposta un hashtag nel popup. Apri il salvataggio in iD: deve comparire nel campo hashtag anche senza premere Suggerisci. Verifica sostituzione, azzeramento, assenza di duplicati e conservazione degli altri hashtag. Il commento non deve ricevere il suffisso con l'hashtag.
-- **Overture:** attiva i controlli, passa a zoom 18 e carica l'area. Controlla allineamento, spostamento del pannello e tema chiaro/scuro. Seleziona un edificio non già presente, premi A e verifica che venga aggiunto alle modifiche e rimosso dall'overlay. Annulla con i normali strumenti di iD; per la prova non è necessario caricare alcun changeset.
-- **Griglia:** genera una griglia su OpenStreetMap, controlla il download GeoJSON, trascinala in iD e verifica il centro della griglia. Riapri il popup per controllare che i parametri siano memorizzati.
-
-## Controlli automatici
-
-Con Node.js installato:
-
-```text
-npm ci
-npm run build
-npm test
-```
-
-Il pacchetto contiene già `dist/overture.js`: per la prova manuale non occorre compilare nulla.
-
-## Repository separato
-
-Nome previsto: `dp7x/cOSMetics_Firefox`. Se non esiste, crea un repository vuoto su GitHub, senza inizializzare README o licenza. Estrai i sorgenti nella cartella da usare per questo progetto e pubblicali con:
-
-```text
-git init -b main
-git add .
-git commit -m "Port cOSMetics 1.90 to Firefox"
-git remote add origin https://github.com/dp7x/cOSMetics_Firefox.git
-git push -u origin main
-```
-
-Se il repository esiste già e contiene file, non usare questi comandi per sovrascriverlo: allinealo prima con i sorgenti preparati.
+Use a small test area and review the local edit history. No upload is needed
+to check drawing, preview, corrections or undo.

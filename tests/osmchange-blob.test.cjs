@@ -7,7 +7,7 @@ const urls = {
   createObjectURL: () => `blob:test-${++counter}`,
   revokeObjectURL: url => { revoked = url; }
 };
-const context = { window: {}, URL: urls, Blob,
+const context = { CosmeticsSimplifyBridge(){}, CosmeticsFixerBridge(){}, window: {}, URL: urls, Blob,
   CustomEvent: class { constructor(type, options) { this.type = type; this.detail = options.detail; } },
   document: { querySelector: () => link,
     addEventListener: (type, listener) => { listeners[type] = listener; },

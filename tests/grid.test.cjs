@@ -10,7 +10,7 @@ const ring=grid.features[0].geometry.coordinates[0];assert.deepEqual(ring[0],rin
 const metersLat=(ring[0][1]-ring[1][1])*111320;assert(Math.abs(metersLat-500)<0.001);
 const last=grid.features.at(-1).geometry.coordinates[0];assert(Math.abs((ring[0][0]+last[2][0])/2-13)<1e-9);assert(Math.abs((ring[0][1]+last[2][1])/2-43)<1e-9);
 assert.throws(()=>context.generateGeoJSONGrid(180,43,10,1000));
-const html=fs.readFileSync('./popup.html','utf8');assert.equal((html.match(/<details /g)||[]).length,4);assert(html.indexOf('</main>')<html.indexOf('id="saveButton"'));
+const html=fs.readFileSync('./popup.html','utf8');assert.equal((html.match(/<details /g)||[]).length,6);assert(html.indexOf('</main>')<html.indexOf('id="saveButton"'));
 const keys=[...html.matchAll(/data-i18n(?:-html)?="([^"]+)"/g)].map(m=>m[1]);
 for(const lang of ['en','it','sk','de','fr','es']){const locale=JSON.parse(fs.readFileSync(`./_locales/${lang}/messages.json`));for(const key of keys)assert(locale[key]?.message,`${lang}: ${key}`)}
-console.log('PASS: map URL validation, grid bounds, dimensions, centre, GeoJSON rings, four sections, separate save footer and translated UI.');
+console.log('PASS: map URL validation, grid bounds, dimensions, centre, GeoJSON rings, six sections, separate save footer and translated UI.');
