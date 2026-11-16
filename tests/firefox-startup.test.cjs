@@ -13,10 +13,10 @@ test('All MAIN-world modules start together and grid transport preserves existin
   const scope={document,window:{addEventListener(){}},Blob,URL:{createObjectURL(){},revokeObjectURL(){}},console,setTimeout,clearTimeout,
     CustomEvent:class{constructor(type,options={}){this.type=type;this.detail=options.detail;}}};
   const context=vm.createContext(scope);
-  for(const file of ['simplify-core.js','fixer-core.js','src/fixer-bridge.js','src/simplify-bridge.js','src/draw-building.js','src/id-bridge.js'])vm.runInContext(fs.readFileSync(file,'utf8'),context);
-  scope.window.iD={coreContext:()=>editor};scope.window.iD.coreContext();
+  for(const file of ['simplify-core.js','fixer-core.js','src/fixer-bridge.js','src/simplify-bridge.js','src/draw-building.js','src/redraw-segment.js','src/id-bridge.js'])vm.runInContext(fs.readFileSync(file,'utf8'),context);
+  scope.window.iD=Object.freeze({coreContext:()=>editor});scope.window.iD.coreContext();
   assert.equal(document.documentElement.dataset.cosmeticsIdBridge,'ready');
-  for(const type of ['cosmetics:fixer-request','cosmetics:simplify-request','cosmetics:draw-building-toggle','cosmetics:read-osmchange'])assert(listeners.has(type),type);
+  for(const type of ['cosmetics:fixer-request','cosmetics:simplify-request','cosmetics:draw-building-toggle','cosmetics:redraw-toggle','cosmetics:read-osmchange'])assert(listeners.has(type),type);
   function request(value){document.dispatchEvent({type:'cosmetics:grid-request',detail:JSON.stringify(value)});return responses.at(-1);}
   assert.deepEqual(request({action:'probe'}),{status:'ready',occupied:true});
   const data={type:'FeatureCollection',features:[{type:'Feature',geometry:{type:'Polygon',coordinates:[]},properties:{}}]};
