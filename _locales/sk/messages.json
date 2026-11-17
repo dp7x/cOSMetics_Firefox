@@ -1,4 +1,7 @@
 {
+  "supportMessage": {
+    "message": "Ak sa ti cOSMetics páči, daj repozitáru hviezdičku na <a href=\"https://github.com/dp7x/cOSMetics_Firefox\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a> a napíš recenziu na <a href=\"https://addons.mozilla.org/firefox/addon/cosmetics-for-id/\" target=\"_blank\" rel=\"noopener noreferrer\">Mozilla Add-ons</a>. Ďakujeme!"
+  },
   "appName": {
     "message": "cOSMetics for iD — Redraw Beta 5"
   },

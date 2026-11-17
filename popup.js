@@ -18,7 +18,7 @@ function translatedMarkup(message) {
         if (node.tagName === 'A') {
             try {
                 const url = new URL(node.getAttribute('href'));
-                if (url.protocol === 'https:' && ['www.openstreetmap.org', 'overturemaps.org', 'overpass-turbo.eu', 'github.com'].includes(url.hostname)) {
+                if (url.protocol === 'https:' && ['www.openstreetmap.org', 'overturemaps.org', 'overpass-turbo.eu', 'github.com', 'addons.mozilla.org'].includes(url.hostname)) {
                     element.href = url.href;
                     element.target = '_blank';
                     element.rel = 'noopener noreferrer';
