@@ -1,7 +1,8 @@
+<!-- Reviewer build instructions: see BUILDING.md in this source archive. -->
 <div align="center">
   <img width="440" height="280" alt="image" src="https://github.com/user-attachments/assets/74690435-e1d8-4a6d-8b86-9c12bbcc4f05" />
 
-  # cOSMetics for iD 2.10
+  # cOSMetics for iD 2.11
 
   Mapping tools for OpenStreetMap
 </div>
@@ -142,3 +143,7 @@ Overture building data is separate from the code license. Overture lists its bui
 ## Credits
 
 © 2024–2026 **dp7** [@OpenStreetMap](https://www.openstreetmap.org/user/dp7)
+
+### Version 2.11
+
+Fixes iD startup compatibility when cOSMetics and Strava Heatmap are enabled together.

@@ -1,11 +1,11 @@
-# Firefox 2.10 — manual checks
+# Firefox 2.11 — manual checks
 
 Load `manifest.json` through `about:debugging#/runtime/this-firefox` →
 **Load Temporary Add-on**, then refresh iD. Temporary installation ends when
 Firefox closes. The package is unsigned; permanent installation requires
 Mozilla signing.
 
-- Confirm the popup displays **2.10** and all six feature sections. Check the
+- Confirm the popup displays **2.11** and all six feature sections. Check the
   interface in the browser language and that the Save button stays visible.
 - Bricks, Sensei and Shapes should start disabled. Enable them in the popup,
   reopen the popup to check their switches, then reload iD to verify they reset.
